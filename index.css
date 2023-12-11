@@ -24,14 +24,27 @@
     width:70px;
     height: 50px;
 }
-.card-container{
+.card-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
-.res-card{
-    margin:1%;
-    width:20%;
+
+.card-link {
+    margin: 0.25%;
+    width: 20%;
+    text-decoration: none;
+    color:black;
+}
+
+.card-link:hover{
     border: 1px solid black;
+}
+
+.res-card{
+    height: 80vh;
+    width:100%;
+    
 }
 
 .res-img{
@@ -66,4 +79,17 @@
 #login-btn{
     margin : 5px;
     cursor: pointer;
+}
+
+.menu-container > ul >li{
+    list-style: none;
+}
+.menu-card-container{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    margin:2px;
+    padding:10px;
+    border: 1px solid black;
+    background-color: #f0f0f0;
 }

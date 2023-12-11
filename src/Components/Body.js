@@ -1,6 +1,8 @@
 import Card from "./Card";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { HOME_URL } from "../utilities/constants";
+import {Link} from "react-router-dom";
 
 
 
@@ -16,8 +18,7 @@ const Body=()=>{
 
     useEffect(()=>{fetchData()},[]);
     const fetchData=async ()=>{
-        const data=await fetch(
-            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7195687&lng=75.8577258&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data=await fetch(HOME_URL);
         const json=await data.json();
         const loadData=json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants;//optional Chaining
         setListOfRestaurents(loadData);
@@ -54,7 +55,7 @@ return listOfRestaurents.length===0 ? <Shimmer/> : (
         </div>
         <div className="card-container">
             {filterListRes.map((restaurent)=>(
-                <Card key={restaurent.info.id} resData={restaurent}/>)
+                <Link className="card-link" to ={"/restaurents/"+restaurent.info.id}>  <Card key={restaurent.info.id} resData={restaurent}/> </Link>)
             )}
             
             

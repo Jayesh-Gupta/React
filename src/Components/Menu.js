@@ -1,22 +1,46 @@
-import { useEffect } from "react";
+import { useState,useEffect } from "react";
+import { MENU_URL } from "../utilities/constants";
+import { useParams } from "react-router-dom";
+import Shimmer from "./Shimmer";
+import MenuCard from "./MenuCard";
 
 const Menu=()=>{
-
+    const[menuData,setMenuData]=useState(null);
+    const {resId}=useParams();//destructuring
     useEffect(()=>{fetchMenu();},[]);
 
     const fetchMenu=async ()=>{
-        const data= await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.7195687&lng=75.8577258&restaurantId=84070&catalog_qa=undefined&submitAction=ENTER");
+        const data= await fetch(MENU_URL+resId);
         const jsonData= await data.json();
-        console.log(jsonData);
+        setMenuData(jsonData);
+        
+      //  console.log(jsonData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card);
     }
-
-    return <div>
-        <h1> Restaurent Name</h1>
+    
+    if(menuData===null)return <Shimmer/>
+    const{name}=menuData?.data?.cards[0]?.card?.card?.info;
+    //console.log(menuData?.data?.cards[0]?.card?.card?.info);
+    const {itemCards}=menuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card.card;
+    //itemCards.map((menu)=>console.log(menu.card.info.id))
+   
+    return <div className="menu-container">
+        <h1> {name}</h1>
         <h2>Menu</h2>
         <ul>
-            <li>Chapati</li>
-            <li>Dal</li>
-            <li>Burgers</li>
+            {
+           itemCards.map((menu)=>{
+            const{id}=menu.card.info;
+            return (
+            <li key={id}>
+
+                {/*name +"------ Rs"+ price/100*/ }
+                <MenuCard menuData={menu.card.info} />
+                
+                </li>
+                );
+            })
+            }
+            
         </ul>
     </div>
 

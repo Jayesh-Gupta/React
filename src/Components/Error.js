@@ -3,7 +3,7 @@ import { useRouteError } from "react-router-dom";
 const Error=()=>{
     const err=useRouteError();
     console.log(err);
-    return(
+    return err==undefined?[]:(
         <div>
             <h1>This is Error Message</h1>
             <h2>{err.error.message}</h2>
