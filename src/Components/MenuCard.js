@@ -1,6 +1,6 @@
 const MenuCard=(props)=>{
     const {name,price,description}=props.menuData;
-    console.log(props.menuData);
+   // console.log(props.menuData);
     return (
     <div className="menu-card-container">
         <h2>{name}</h2>
