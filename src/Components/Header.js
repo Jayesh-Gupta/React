@@ -7,26 +7,26 @@ import useOnlineStatus from "../utilities/useOnlineStatus";
 const Header=()=>{
 
     const [btnName,setBtnName]=useState("Login");
-    const OnlineStatus=useOnlineStatus();
+    const OnlineStatus=useOnlineStatus()
     console.log(useState("hello"));
 
     return (
-    <div className="header">
+    <div className="m-2 flex justify-between items-center bg-green-50 shadow-lg">
         <div className="logo-container">
             <img 
-            className="logo"
+            className="w-28"
             alt="logo"
             src={A.LOGO_URL}/>
         </div>
-        <div className="nav-items">
-            <ul>
-                <li>OnlineStatus: {OnlineStatus===true?"online":"offline"}</li>
-                <li><Link to="/"> Home</Link></li>
-                <li><Link to="/about"> About</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
-                <li><Link to="/grocery">Grocery</Link></li>
-                <li>Cart</li>
-                <button id="login-btn" onClick={()=>{
+        <div className="">
+            <ul className="flex ">
+                <li className="px-2 py-1 mx-1">OnlineStatus: {OnlineStatus===true?"online":"offline"}</li>
+                <li className="px-2 py-1 mx-1"><Link to="/"> Home</Link></li>
+                <li className="px-2 py-1 mx-1"><Link to="/about"> About</Link></li>
+                <li className="px-2 py-1 mx-1"><Link to="/contact">Contact</Link></li>
+                <li className="px-2 py-1 mx-1"><Link to="/grocery">Grocery</Link></li>
+                <li className="px-2 py-1 mx-1 ">Cart</li>
+                <button className="px-4 py-1 mx-1 border-solid border-2 border-blue-500 rounded-lg hover:bg-blue-500 hover:text-white" id="login-btn" onClick={()=>{
                     btnName==="Login"?setBtnName("Logout"):setBtnName("Login");
                 }}>{btnName}</button>
             </ul>

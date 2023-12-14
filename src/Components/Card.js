@@ -7,17 +7,17 @@ const Card=(props)=>{
     
     const{name,cuisines,avgRating,cloudinaryImageId}=props.resData.info;
     return (
-    <div className="res-card" style={cardStyles}>
+    <div className="m-2 h-[400px] w-56 shadow-lg hover:shadow-2xl hover:border-solid hover:border-2 hover:border-gray-100" style={cardStyles}>
         <div className="res-img-container">
         <img src={A.CDN_URL+ 
                     cloudinaryImageId}
-            alt="res-img" className="res-img"  />
+            alt="res-img" className="w-full h-[200px]"  />
         </div>
         <div className="res-desc">
-        <h3 className="res-name">{name}</h3>
+        <h3 className="font-bold m-1">{name}</h3>
         
-        <h4 className="res-cusines">{cuisines.join(", ")}</h4>
-        <h5 className="res-ratings">{avgRating} stars</h5>
+        <h4 className="m-1">{cuisines.join(", ")}</h4>
+        <h5 className="m-1">{avgRating} stars</h5>
         </div>
     </div>
 )};

@@ -7,7 +7,6 @@ const Menu=()=>{
     
     const {resId}=useParams();//destructuring
     const menuData=useRestaurentMenu(resId);
-    console.log("Menu Called "+menuData);
     
     if(menuData===null)return <Shimmer/>
     const{name}=menuData?.data?.cards[0]?.card?.card?.info;
@@ -15,10 +14,10 @@ const Menu=()=>{
     const {itemCards}=menuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card.card;
     //itemCards.map((menu)=>console.log(menu.card.info.id))
    
-    return <div className="menu-container">
-        <h1> {name}</h1>
-        <h2>Menu</h2>
-        <ul>
+    return <div className="">
+        <h1 className="font-bold m-2 text-3xl py-2 shadow"> {name}</h1>
+        <h2 className="text-xl font-bold m-2" >Menu</h2>
+        <ul className="flex flex-wrap flex-col ">
             {
            itemCards.map((menu)=>{
             const{id}=menu.card.info;

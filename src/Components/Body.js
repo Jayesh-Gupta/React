@@ -34,9 +34,10 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
-          <input
+      <div className="flex ">
+        <div className="">
+          <input 
+            className="m-2 px-2 py-1 border-solid border-2 border-black rounded-md"
             type="text"
             id="search-bar"
             placeholder="Search....."
@@ -47,6 +48,7 @@ const Body = () => {
             }}
           />
           <button
+            className="px-2 py-1 m-2 border-solid border-2 border-green-500 rounded-lg hover:bg-green-500 hover:text-white"
             id="search-bar-btn"
             onClick={() => {
               const filteredList = listOfRestaurents.filter((restaurent) => {
@@ -62,6 +64,7 @@ const Body = () => {
         </div>
 
         <button
+          className="m-2 px-2 py-1 border-solid border-2 border-red-500 rounded-lg hover:bg-red-500 hover:text-pink-200"
           id="top-res-btn"
           onClick={() => {
             let filteredList = listOfRestaurents.filter(
@@ -73,7 +76,7 @@ const Body = () => {
           Top Rated Restaurents
         </button>
       </div>
-      <div className="card-container">
+      <div className="flex flex-wrap">
         {filterListRes.map((restaurent) => (
           <Link
             className="card-link"
