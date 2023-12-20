@@ -1,24 +1,25 @@
 import User from "./User";
 import UserClass from "./UserClass";
 import React from "react";
+import UserContext from "../utilities/UserContext";
 
 
 class About extends React.Component{
 
     constructor(props){
         super(props);
-        console.log("Parent Constructor");
+        //console.log("Parent Constructor");
     }
 
     componentDidMount(){
        // this.timer=setInterval(()=>{console.log("React")},1000);
-        console.log("Parent Mount");
+       // console.log("Parent Mount");
     }
     componentDidUpdate(){
-        console.log("Parent component did upadate");
+        //console.log("Parent component did upadate");
     }
     componentWillUnmount(){
-        console.log("Parent component unmounted");
+       // console.log("Parent component unmounted");
        // clearInterval(this.timer);
     }
 
@@ -30,6 +31,9 @@ class About extends React.Component{
                 <h2>This is About us </h2>
                 {/*<UserClass name="Class" location="UserClass"/>*/}
                 <User name="function"  location="User"/>
+                <UserContext.Consumer >
+                {(value)=><h2>{value.loggedInUser}</h2>}
+                </UserContext.Consumer>
             </div>
         );
 

@@ -7,10 +7,10 @@ const User=({name,location})=>{
     const[count2]=useState(2);
 
     useEffect(()=>{
-            console.log("useEffect");
+          //  console.log("useEffect");
            const timer= setInterval(()=>{console.log("react")},1000);
             return()=>{
-                console.log("useEffect return");
+                //console.log("useEffect return");
                 clearInterval(timer);
             };
     },[]);
