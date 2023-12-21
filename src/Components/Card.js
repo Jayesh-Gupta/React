@@ -9,8 +9,9 @@ const Card=(props)=>{
     //console.log(props);
     const {loggedInUser}=useContext(UserContext);
     const{name,cuisines,avgRating,cloudinaryImageId}=props.resData.info;
+    //console.log(props.resData);
     return (
-    <div className="m-2 h-[400px] w-56 shadow-lg hover:shadow-2xl hover:border-solid hover:border-2 hover:border-gray-100" style={cardStyles}>
+    <div data-testid="resCard"  className="m-2 h-[400px] w-56 shadow-lg hover:shadow-2xl hover:border-solid hover:border-2 hover:border-gray-100" style={cardStyles}>
         <div className="res-img-container">
         <img src={A.CDN_URL+ 
                     cloudinaryImageId}

@@ -5,10 +5,10 @@ const useRestaurentMenu=(resId)=>{
 
     const [resInfo,setResInfo]=useState(null);
 
-    console.log("custom hook called");
+    //console.log("custom hook called");
 
     useEffect(()=>{
-        console.log("custom hook effect");
+        //console.log("custom hook effect");
         fetchMenu(resId);
     },[]);
 

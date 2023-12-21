@@ -13,7 +13,7 @@ const Header=()=>{
     //console.log(useState("hello"));
     const {loggedInUser}=useContext(UserContext);
     const cartItems=useSelector((store)=>store.cart.items);
-    console.log(cartItems);
+    //console.log(cartItems);
 
     return (
     <div className="m-2 flex justify-between items-center bg-green-50 shadow-lg">

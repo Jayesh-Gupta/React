@@ -49,6 +49,7 @@ const Body = () => {
           <input 
             className="m-2 px-2 py-1 border-solid border-2 border-black rounded-md"
             type="text"
+            data-testid="searchInput"
             id="search-bar"
             placeholder="Search....."
             value={searchText}
@@ -75,6 +76,7 @@ const Body = () => {
 
         <button
           className="m-2 px-2 py-1 border-solid border-2 border-red-500 rounded-lg hover:bg-red-500 hover:text-pink-200"
+          data-testid="topResBtn"
           id="top-res-btn"
           onClick={() => {
             let filteredList = listOfRestaurents.filter(
